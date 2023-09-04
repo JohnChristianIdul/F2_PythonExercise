@@ -25,12 +25,15 @@ def binaryToN(bin, type):
         if bit == '1':
             decimal += 2 ** power
         power += 1
+        print("bit: ", bit)
+        print("power: ",power)
+        print("decimal: ",decimal)
 
     if type == "dec":
         return decimal
-    elif type == 'oct':
+    elif type == "oct":
         return decToOctal(decimal)
-    elif type == 'hex':
+    elif type == "hex":
         return decToHex(decimal)
 
 
