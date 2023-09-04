@@ -1,9 +1,4 @@
 # Write the following functions
-# def binaryToN(bin, type):
-
-# def decToHex(dec):
-
-# def main() – call all the function
 def decToBinary(dec):
     if dec == 0:
         return "0"
@@ -15,7 +10,6 @@ def decToBinary(dec):
         dec = dec // 2
 
     return binary
-
 
 def binaryToN(bin, type):
     decimal = 0
