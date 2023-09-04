@@ -19,34 +19,19 @@ def decToBinary(dec):
 
 def binaryToN(bin, type):
     decimal = 0
-    base = 1
+    power = 0
 
-    # Convert binary to decimal
-    for digit in reversed(bin):
-        if digit == '1':
-            decimal += base
-        base *= 2
+    for bit in reversed(str(bin)):
+        if bit == '1':
+            decimal += 2 ** power
+        power += 1
 
     if type == "dec":
         return decimal
     elif type == 'oct':
-        octal = ""
-        while decimal > 0:
-            remainder = decimal % 8
-            octal = str(remainder) + octal
-            decimal = decimal // 8
-        return octal
+        return decToOctal(decimal)
     elif type == 'hex':
-        hexadecimal = ""
-        while decimal > 0:
-            remainder = decimal % 16
-            if remainder < 10:
-                hexadecimal = str(remainder) + hexadecimal
-            else:
-                hexadecimal = chr(ord('A') + remainder - 10) + hexadecimal
-            decimal = decimal // 16
-        return hexadecimal
-
+        return decToHex(decimal)
 
 
 def decToOctal(dec):
@@ -85,6 +70,7 @@ def main():
     binary_number = int(input("Enter a binary number: "))
     t = input("Convert binary to what type (dec/oct/hex): ")
     n = binaryToN(binary_number, t)
+
     if t == "dec":
         print("The decimal representation of", binary_number, " is ", n)
     elif t == "oct":
